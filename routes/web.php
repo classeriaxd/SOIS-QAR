@@ -31,7 +31,6 @@ Route::get('/e/{event}/edit', [App\Http\Controllers\EventsController::class, 'ed
 Route::patch('/e/{event}', [App\Http\Controllers\EventsController::class, 'update']);
 Route::delete('/e/{event}', [App\Http\Controllers\EventsController::class, 'destroy'])->name('event.destroy');
 
-
 Route::get('/e/{event}/images/add', [App\Http\Controllers\EventImagesController::class, 'create']);
 Route::get('/e/{event}/images', [App\Http\Controllers\EventImagesController::class, 'index']);
 Route::post('/e/{event}/images', [App\Http\Controllers\EventImagesController::class, 'store']);
@@ -39,5 +38,8 @@ Route::get('/e/{event}/images/{eventImage}', [App\Http\Controllers\EventImagesCo
 Route::get('/e/{event}/images/{eventImage}/edit', [App\Http\Controllers\EventImagesController::class, 'edit']);
 Route::patch('/e/{event}/images/{eventImage}', [App\Http\Controllers\EventImagesController::class, 'update']);
 Route::delete('/e/{event}/images/{eventImage}', [App\Http\Controllers\EventImagesController::class, 'destroy'])->name('eventImage.destroy');
+
+Route::get('/e/{year}/summary', [App\Http\Controllers\EventsController::class, 'summary']);
+Route::get('/e/{year}/summary/download', [App\Http\Controllers\EventsController::class, 'downloadPDF']);
 
 
