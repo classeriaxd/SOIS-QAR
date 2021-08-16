@@ -95,7 +95,7 @@ class MeetingNoticesController extends Controller
             'objectives' => 'required',
         ]);	
 
-        $meetingnotice_id = MeetingNotice::create([
+        $meetingnotice_uuid = MeetingNotice::create([
             'notice_uuid' => Str::uuid(),
             'for' => $data['for'],
             'from' => $data['from'],
@@ -104,8 +104,8 @@ class MeetingNoticesController extends Controller
             'venue' => $data['venue'],
             'objectives' => $data['objectives'],
 
-        ])->meetingnotice_id;
-    	 return redirect()->route('show', compact('notices'));
+        ])->notice_uuid;
+        return redirect()->route('meetingNotice.show',['notice_uuid' => $meetingnotice_uuid,]);
     }
 }
 
